@@ -42,7 +42,11 @@ const AvailabilitySchedule: React.FC = () => {
   };
 
   return (
-    <div className="sm:p-6 p-2 sm:max-w-fit border-blue-700 bg-white flex justify-center flex-col items-center w-full mx-auto border-2 rounded-l-lg rounded-t-lg rounded-b-lg sm:rounded-r-none shadow-inner">
+    <div
+      className={`sm:p-6 p-2 sm:max-w-fit border-blue-700 bg-white flex justify-center flex-col items-center w-full mx-auto border-2 rounded-l-lg rounded-t-lg rounded-b-lg ${
+        selectedDays?.length > 0 ? `sm:rounded-r-none` : ``
+      } shadow-inner`}
+    >
       {/* Day selector buttons */}
       <div className="flex w-full space-x-2 mb-4">
         {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => {
@@ -51,7 +55,7 @@ const AvailabilitySchedule: React.FC = () => {
             <button
               key={index}
               onClick={() => toggleDaySelection(dayName)}
-              className={`w-8 h-8 flex items-center justify-center rounded-full text-white ${
+              className={`w-8 h-8 flex items-center hover:bg-blue-500 justify-center rounded-full text-white ${
                 selectedDays.includes(dayName) ? "bg-blue-700" : "bg-gray-300"
               }`}
             >
@@ -101,6 +105,9 @@ const AvailabilitySchedule: React.FC = () => {
           ))}
         </div>
       ))}
+      {selectedDays?.length <= 0 && (
+        <p className="text-gray-700 font-semibold">Day Not Selected</p>
+      )}
     </div>
   );
 };
