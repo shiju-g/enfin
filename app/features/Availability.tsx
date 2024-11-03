@@ -42,7 +42,7 @@ const AvailabilitySchedule: React.FC = () => {
   };
 
   return (
-    <div className="p-6 max-w-fit border-blue-500 flex justify-center flex-col items-center w-full mx-auto border-2 rounded-lg shadow-lg">
+    <div className="sm:p-6 p-2 sm:max-w-fit border-blue-700 flex justify-center flex-col items-center w-full mx-auto border-2 rounded-l-lg rounded-t-lg rounded-b-lg sm:rounded-r-none shadow-lg">
       {/* Day selector buttons */}
       <div className="flex w-full space-x-2 mb-4">
         {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => {
